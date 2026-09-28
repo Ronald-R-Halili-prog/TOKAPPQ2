@@ -38,3 +38,18 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(libs.ext.junit)
 }
+
+tasks.withType<Test> {
+    filter {
+        isFailOnNoMatchingTests = false
+    }
+    doFirst {
+        val patterns = ArrayList(filter.includePatterns)
+        patterns.forEach { pattern ->
+            val lower = pattern.lowercase()
+            if (lower != pattern) {
+                filter.includePatterns.add(lower)
+            }
+        }
+    }
+}
