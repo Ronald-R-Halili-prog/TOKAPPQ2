@@ -5,7 +5,7 @@ public class Detailstask {
      public static void DetailstaskComponent() {
 
          //Stores the name of the task.
-          String taskName = "Finish Report";
+          String taskName = "Finish report";
 
           //Stores the due date of the task.
           String dueDate = "2026-08-10";
