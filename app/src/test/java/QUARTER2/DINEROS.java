@@ -6,7 +6,7 @@ public class DINEROS {
     public void printMYprofile() {
         String myName = "DINEROS";
         String petname = "BELLA";
-        String favfood = "OMELETTE";
+        String favfood = "ANYTHING";
         int myAge = 16;
 
         System.out.println("---MY DIGITAL PROFILE---");

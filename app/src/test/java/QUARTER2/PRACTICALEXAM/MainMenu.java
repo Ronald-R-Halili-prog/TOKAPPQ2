@@ -1,4 +1,4 @@
-package quarter2.practicalexam;
+package QUARTER2.PRACTICALEXAM;
 
 import java.util.Scanner;
 
@@ -67,6 +67,4 @@ public class MainMenu {
 
     }
 
-    public void Menu() {
-    }
 }
