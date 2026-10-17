@@ -5,6 +5,61 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     tools:context=".MainActivity1">
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="306dp"
+        android:layout_height="76dp"
+        android:text="@string/task_details"
+        android:textColor="#222222"
+        android:background="@drawable/buttons"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.702"
+        tools:ignore="VisualLintOverlap" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="306dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="360dp"
+        android:layout_marginBottom="295dp"
+        android:background="@drawable/buttons"
+        android:text="@string/assigned_a_task"
+        android:textColor="#222222"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="VisualLintOverlap" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="306dp"
+        android:layout_height="76dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="556dp"
+        android:layout_marginEnd="53dp"
+        android:layout_marginBottom="99dp"
+        android:background="@drawable/buttons"
+        android:text="@string/completed_task"
+        android:textColor="#222222"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="VisualLintOverlap" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
