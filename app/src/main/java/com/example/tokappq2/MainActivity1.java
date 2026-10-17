@@ -1,15 +1,18 @@
 package com.example.tokappq2;
 
+import android.animation.ArgbEvaluator;
+import android.animation.ValueAnimator;
+import android.graphics.drawable.GradientDrawable;
+import android.media.MediaPlayer;
+import android.media.PlaybackParams;
 import android.os.Bundle;
+import android.view.View;
+import android.view.animation.OvershootInterpolator;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
-import java.util.Objects;
 
 public class MainActivity1 extends AppCompatActivity {
 
@@ -17,15 +20,38 @@ public class MainActivity1 extends AppCompatActivity {
     private final GradientAnimator animator2 = new GradientAnimator();
     private final GradientAnimator animator3 = new GradientAnimator();
 
+    private MediaPlayer bgMusic;
+    private ImageButton btnMusic;
+    private boolean musicOn = true;
+    private ValueAnimator bgAnimator;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main1);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
+
+        setupBackgroundGradient(findViewById(R.id.main));
+
+        bgMusic = MediaPlayer.create(this, R.raw.bg_music);
+        bgMusic.setLooping(true);
+        bgMusic.setVolume(0.7f, 0.7f);
+
+        btnMusic = findViewById(R.id.btnMusic);
+        updateMusicIcon();
+        btnMusic.setOnClickListener(v -> {
+            bounce(v);
+            musicOn = !musicOn;
+            if (musicOn) {
+                startMusic();
+            } else {
+                pauseMusic();
+            }
+            updateMusicIcon();
         });
 
         Button assignedBtn = findViewById(R.id.button4);
@@ -39,7 +65,86 @@ public class MainActivity1 extends AppCompatActivity {
         animator1.attach(assignedBtn, setA, setB, radius);
         animator2.attach(detailsBtn, setA, setB, radius);
         animator3.attach(completedBtn, setA, setB, radius);
-        Objects.requireNonNull(getSupportActionBar()).hide();
+
+        assignedBtn.setOnClickListener(this::bounce);
+        detailsBtn.setOnClickListener(this::bounce);
+        completedBtn.setOnClickListener(this::bounce);
+    }
+
+    private void setupBackgroundGradient(View root) {
+        final int[] bgA = {0xFF0D47A1, 0xFF004D40};
+        final int[] bgB = {0xFF880E4F, 0xFF4A148C};
+
+        final GradientDrawable bg = new GradientDrawable(
+                GradientDrawable.Orientation.TL_BR, bgA);
+        root.setBackground(bg);
+
+        final ArgbEvaluator evaluator = new ArgbEvaluator();
+        bgAnimator = ValueAnimator.ofFloat(0f, 1f);
+        bgAnimator.setDuration(4000);
+        bgAnimator.setRepeatCount(ValueAnimator.INFINITE);
+        bgAnimator.setRepeatMode(ValueAnimator.REVERSE);
+        bgAnimator.addUpdateListener(a -> {
+            float f = a.getAnimatedFraction();
+            int c1 = (int) evaluator.evaluate(f, bgA[0], bgB[0]);
+            int c2 = (int) evaluator.evaluate(f, bgA[1], bgB[1]);
+            bg.setColors(new int[]{c1, c2});
+        });
+    }
+
+    private void bounce(View view) {
+        view.animate().cancel();
+        view.animate()
+                .scaleX(0.9f)
+                .scaleY(0.9f)
+                .setDuration(80)
+                .withEndAction(() -> view.animate()
+                        .scaleX(1f)
+                        .scaleY(1f)
+                        .setDuration(180)
+                        .setInterpolator(new OvershootInterpolator(3f))
+                        .start())
+                .start();
+    }
+
+    private void startMusic() {
+        if (bgMusic != null && !bgMusic.isPlaying()) {
+            bgMusic.start();
+            bgMusic.setPlaybackParams(
+                    new PlaybackParams().setSpeed(1.25f).setPitch(1.0f));
+        }
+    }
+
+    private void pauseMusic() {
+        if (bgMusic != null && bgMusic.isPlaying()) {
+            bgMusic.pause();
+        }
+    }
+
+    private void updateMusicIcon() {
+        btnMusic.setImageResource(musicOn
+                ? R.drawable.ic_volume_on
+                : R.drawable.ic_volume_off);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (musicOn) {
+            startMusic();
+        }
+        if (bgAnimator != null && !bgAnimator.isRunning()) {
+            bgAnimator.start();
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        pauseMusic();
+        if (bgAnimator != null) {
+            bgAnimator.cancel();
+        }
     }
 
     @Override
@@ -47,5 +152,13 @@ public class MainActivity1 extends AppCompatActivity {
         super.onDestroy();
         animator1.stop();
         animator2.stop();
-        animator3.stop();}
+        animator3.stop();
+        if (bgAnimator != null) {
+            bgAnimator.cancel();
+        }
+        if (bgMusic != null) {
+            bgMusic.release();
+            bgMusic = null;
+        }
     }
+}

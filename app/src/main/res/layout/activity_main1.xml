@@ -61,5 +61,20 @@
         app:layout_constraintVertical_bias="1.0"
         tools:ignore="VisualLintOverlap" />
 
+    <ImageButton
+        android:id="@+id/btnMusic"
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/music_btn_bg"
+        android:contentDescription="@string/toggle_music"
+        android:elevation="4dp"
+        android:padding="13dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_volume_on"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

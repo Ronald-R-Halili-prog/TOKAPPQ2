@@ -3,4 +3,5 @@
     <string name="task_details">Task Details</string>
     <string name="assigned_a_task">Assigned a Task</string>
     <string name="completed_task">Completed Task</string>
+    <string name="toggle_music">Toggle music</string>
 </resources>
