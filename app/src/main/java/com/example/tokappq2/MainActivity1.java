@@ -2,17 +2,24 @@ package com.example.tokappq2;
 
 import android.animation.ArgbEvaluator;
 import android.animation.ValueAnimator;
+import android.graphics.ImageDecoder;
+import android.graphics.drawable.AnimatedImageDrawable;
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.media.MediaPlayer;
 import android.media.PlaybackParams;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.io.IOException;
 
 public class MainActivity1 extends AppCompatActivity {
 
@@ -36,6 +43,7 @@ public class MainActivity1 extends AppCompatActivity {
         }
 
         setupBackgroundGradient(findViewById(R.id.main));
+        setupLogo();
 
         bgMusic = MediaPlayer.create(this, R.raw.bg_music);
         bgMusic.setLooping(true);
@@ -69,6 +77,37 @@ public class MainActivity1 extends AppCompatActivity {
         assignedBtn.setOnClickListener(this::bounce);
         detailsBtn.setOnClickListener(this::bounce);
         completedBtn.setOnClickListener(this::bounce);
+    }
+
+    private void setupLogo() {
+        ImageView logo = findViewById(R.id.logo);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            try {
+                ImageDecoder.Source source =
+                        ImageDecoder.createSource(getResources(), R.drawable.logo_anim);
+                Drawable drawable = ImageDecoder.decodeDrawable(source);
+                logo.setImageDrawable(drawable);
+                if (drawable instanceof AnimatedImageDrawable) {
+                    AnimatedImageDrawable animated = (AnimatedImageDrawable) drawable;
+                    animated.setRepeatCount(AnimatedImageDrawable.REPEAT_INFINITE);
+                    animated.start();
+                }
+            } catch (IOException e) {
+                logo.setImageResource(R.drawable.logo_anim);
+            }
+        } else {
+            logo.setImageResource(R.drawable.logo_anim);
+        }
+        logo.setAlpha(0f);
+        logo.setScaleX(0.3f);
+        logo.setScaleY(0.3f);
+        logo.animate()
+                .alpha(1f)
+                .scaleX(1f)
+                .scaleY(1f)
+                .setDuration(900)
+                .setInterpolator(new OvershootInterpolator(2f))
+                .start();
     }
 
     private void setupBackgroundGradient(View root) {
