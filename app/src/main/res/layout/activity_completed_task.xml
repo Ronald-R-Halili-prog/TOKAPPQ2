@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:background="#2F4F4F"
+    android:layout_height="match_parent"
+    tools:context=".CompletedTask">
+
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="251dp"
+        android:layout_height="88dp"
+        android:textColor="#FFEFFF"
+        android:text="My Task"
+        android:textSize="50sp"
+        tools:layout_editor_absoluteX="20
+        dp"
+        tools:layout_editor_absoluteY="10
+        dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0 of 3 completed"
+        android:textColor="#FFEB3B"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="66dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="373dp"
+        android:layout_height="48dp"
+        android:text="Add Task"
+        android:textColor="#FFEFFF"
+        android android:clickable="true"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="667dp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="266dp"
+        android:layout_height="39dp"
+        android:text="Go to market"
+        android:textColor="#FFEB3B"
+        android:textSize="25sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="143dp" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="95dp"
+        android:layout_height="39dp"
+        android:text="Done"
+        android:clickable="true"
+        tools:layout_editor_absoluteX="300dp"
+        tools:layout_editor_absoluteY="143dp" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="266dp"
+        android:layout_height="42dp"
+        android:text="Clean the house"
+        android:textColor="#FFEB3B"
+        android:textSize="25sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="198dp" />
+
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="87dp"
+        android:layout_height="38dp"
+        android:text="Done"
+        android:clickable="true"
+        tools:layout_editor_absoluteX="304dp"
+        tools:layout_editor_absoluteY="198dp" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="268dp"
+        android:layout_height="35dp"
+        android:text="Wash the car"
+        android:textColor="#FFEB3B"
+        android:textSize="25sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="259dp" />
+
+    <Button
+        android:id="@+id/button11"
+        android:layout_width="84dp"
+        android:layout_height="42dp"
+        android:text="Done"
+        android:clickable="true"
+        tools:layout_editor_absoluteX="304dp"
+        tools:layout_editor_absoluteY="255dp" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="358dp"
+        android:layout_height="23dp"
+        android:progress="@android:integer/config_longAnimTime"
+        tools:layout_editor_absoluteX="15dp"
+        tools:layout_editor_absoluteY="104dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
