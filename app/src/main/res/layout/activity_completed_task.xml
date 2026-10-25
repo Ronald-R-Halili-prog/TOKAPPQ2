@@ -6,58 +6,52 @@
     android:layout_width="match_parent"
     android:background="#2F4F4F"
     android:layout_height="match_parent"
-    tools:context=".CompletedTask">
+    tools:context=".CompletedTask"
+    tools:ignore="ExtraText">
 
     <TextView
         android:id="@+id/textview"
-        android:layout_width="251dp"
-        android:layout_height="88dp"
+        android:layout_width="212dp"
+        android:layout_height="61dp"
+        android:text="@string/my_task"
         android:textColor="#FFEFFF"
-        android:text="My Task"
         android:textSize="50sp"
-        tools:layout_editor_absoluteX="20
-        dp"
-        tools:layout_editor_absoluteY="10
-        dp" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="197dp"
+        tools:layout_editor_absoluteY="43dp" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0 of 3 completed"
+        android:text="@string/_0_of_3_completed"
         android:textColor="#FFEB3B"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="66dp" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="373dp"
-        android:layout_height="48dp"
-        android:text="Add Task"
-        android:textColor="#FFEFFF"
-        android android:clickable="true"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="667dp" />
+        tools:layout_editor_absoluteY="88dp"
+        tools:ignore="MissingConstraints" />
+
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="266dp"
         android:layout_height="39dp"
-        android:text="Go to market"
+        android:text="@string/go_to_market"
         android:textColor="#FFEB3B"
         android:textSize="25sp"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="143dp" />
+        tools:layout_editor_absoluteY="143dp"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/button5"
         android:layout_width="95dp"
         android:layout_height="39dp"
-        android:text="Done"
+        android:focusable="true"
         android:clickable="true"
         tools:layout_editor_absoluteX="300dp"
-        tools:layout_editor_absoluteY="143dp" />
+        tools:layout_editor_absoluteY="143dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView7"
@@ -67,16 +61,18 @@
         android:textColor="#FFEB3B"
         android:textSize="25sp"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="198dp" />
+        tools:layout_editor_absoluteY="198dp"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/button10"
         android:layout_width="87dp"
         android:layout_height="38dp"
-        android:text="Done"
+        android:text="@string/done"
         android:clickable="true"
         tools:layout_editor_absoluteX="304dp"
-        tools:layout_editor_absoluteY="198dp" />
+        tools:layout_editor_absoluteY="198dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView8"
@@ -86,24 +82,38 @@
         android:textColor="#FFEB3B"
         android:textSize="25sp"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="259dp" />
+        tools:layout_editor_absoluteY="259dp"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/button11"
         android:layout_width="84dp"
         android:layout_height="42dp"
+        android:focusable="true"
         android:text="Done"
         android:clickable="true"
         tools:layout_editor_absoluteX="304dp"
-        tools:layout_editor_absoluteY="255dp" />
+        tools:layout_editor_absoluteY="255dp"
+        tools:ignore="MissingConstraints" />
 
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="358dp"
-        android:layout_height="23dp"
+        android:layout_width="383dp"
+        android:layout_height="22dp"
         android:progress="@android:integer/config_longAnimTime"
         tools:layout_editor_absoluteX="15dp"
-        tools:layout_editor_absoluteY="104dp" />
+        tools:layout_editor_absoluteY="104dp"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="83dp"
+        android:layout_height="83dp"
+        android:importantForAccessibility="no"
+        tools:layout_editor_absoluteX="9dp"
+        tools:layout_editor_absoluteY="5dp"
+        tools:srcCompat="@tools:sample/avatars"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

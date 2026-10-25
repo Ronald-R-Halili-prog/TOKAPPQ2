@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">TOKAPPQ2</string>
+    <string name="my_task">My Task</string>
+    <string name="_0_of_3_completed">0 of 3 completed</string>
+    <string name="done">Done</string>
+    <string name="add_task">Add Task</string>
+    <string name="go_to_market">Go to market</string>
 </resources>
