@@ -30,7 +30,7 @@
         android:id="@+id/button7"
         android:layout_width="match_parent"
         android:layout_height="87dp"
-        android:text="task"
+        android:text="list of tasks"
         android:textColorLink="#FFFFFF" />
 
     <Button
