@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginTop="24dp"
-            tools:text="Task name" />
+            tools:text="Task name:" />
 
         <EditText
             android:id="@+id/etTaskName"
@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="16dp"
-            tools:text="What to do" />
+            tools:text="What to do:" />
 
         <EditText
             android:id="@+id/etTaskDetails"
