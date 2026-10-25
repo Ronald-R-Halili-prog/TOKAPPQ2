@@ -1,8 +1,6 @@
-package QUARTER2.PRACTICALEXAM;
+package quarter2.practicalexam;
 
-import java.util.Scanner;
-
-public class CompletedTask{
+public class CompletedTask {
 
     public static void CompletedTaskComponent() {
 
@@ -16,8 +14,7 @@ public class CompletedTask{
         System.out.println("Mother's confirmation" + finishKidAssignment);
     }
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         CompletedTaskComponent();
     }
 }
