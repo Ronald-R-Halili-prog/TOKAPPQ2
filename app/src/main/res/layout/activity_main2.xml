@@ -9,38 +9,46 @@
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
-        android:layout_height="109dp"
+        android:layout_height="54dp"
         android:text="Welcome to TOKAPP"
         android:textSize="34sp" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="620dp"
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:text="Child's daily activty"
+        android:textSize="24sp" />
 
     <Button
         android:id="@+id/button6"
-        android:layout_width="218dp"
+        android:layout_width="match_parent"
         android:layout_height="107dp"
-        android:text="student" />
+        android:text=" info" />
 
     <Button
         android:id="@+id/button7"
-        android:layout_width="218dp"
+        android:layout_width="match_parent"
         android:layout_height="87dp"
-        android:text="check" />
+        android:text="list of tasks"
+        android:textColorLink="#FFFFFF" />
 
     <Button
         android:id="@+id/button9"
-        android:layout_width="219dp"
+        android:layout_width="match_parent"
         android:layout_height="79dp"
-        android:text="wellbeing" />
+        android:text="Activities" />
 
     <Button
         android:id="@+id/button8"
-        android:layout_width="218dp"
+        android:layout_width="match_parent"
         android:layout_height="68dp"
         android:text="settings" />
+
+    <Button
+        android:id="@+id/button12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Home" />
 
 </LinearLayout>
