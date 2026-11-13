@@ -46,6 +46,7 @@
     <Button
         android:id="@+id/button5"
         android:layout_width="95dp"
+        android:text="Done"
         android:layout_height="39dp"
         android:focusable="true"
         android:clickable="true"
