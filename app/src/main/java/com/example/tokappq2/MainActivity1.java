@@ -2,6 +2,7 @@ package com.example.tokappq2;
 
 import android.animation.ArgbEvaluator;
 import android.animation.ValueAnimator;
+import android.content.Intent;
 import android.graphics.ImageDecoder;
 import android.graphics.drawable.AnimatedImageDrawable;
 import android.graphics.drawable.Drawable;
@@ -27,8 +28,12 @@ public class MainActivity1 extends AppCompatActivity {
     private final GradientAnimator animator2 = new GradientAnimator();
     private final GradientAnimator animator3 = new GradientAnimator();
 
-    private MediaPlayer bgMusic;
+    private Button btnAssignedTask;
+    private Button btnTaskDetails;
+    private Button btnCompletedTask;
     private ImageButton btnMusic;
+
+    private MediaPlayer bgMusic;
     private boolean musicOn = true;
     private ValueAnimator bgAnimator;
 
@@ -42,41 +47,66 @@ public class MainActivity1 extends AppCompatActivity {
             getSupportActionBar().hide();
         }
 
+        initViews();
         setupBackgroundGradient(findViewById(R.id.main));
         setupLogo();
+        setupMusic();
+        setupButtonStyles();
+        setupListeners();
+    }
 
-        bgMusic = MediaPlayer.create(this, R.raw.bg_music);
-        bgMusic.setLooping(true);
-        bgMusic.setVolume(0.7f, 0.7f);
-
+    private void initViews() {
+        btnAssignedTask = findViewById(R.id.button);
+        btnTaskDetails = findViewById(R.id.button4);
+        btnCompletedTask = findViewById(R.id.button3);
         btnMusic = findViewById(R.id.btnMusic);
-        updateMusicIcon();
+    }
+
+    private void setupListeners() {
+        setupNavigation(btnAssignedTask, CreateTaskActivity.class);
+        setupNavigation(btnTaskDetails, CompletedTask.class);
+        setupNavigation(btnCompletedTask, CompletedTask.class);
+
         btnMusic.setOnClickListener(v -> {
             bounce(v);
-            musicOn = !musicOn;
-            if (musicOn) {
-                startMusic();
-            } else {
-                pauseMusic();
-            }
-            updateMusicIcon();
+            toggleMusic();
         });
+    }
 
-        Button assignedBtn = findViewById(R.id.button4);
-        Button detailsBtn = findViewById(R.id.button);
-        Button completedBtn = findViewById(R.id.button3);
+    private void setupNavigation(Button button, Class<?> destination) {
+        button.setOnClickListener(v -> {
+            bounce(v);
+            startActivity(new Intent(MainActivity1.this, destination));
+        });
+    }
 
+    private void setupButtonStyles() {
         float radius = 50 * getResources().getDisplayMetrics().density;
         int[] setA = {0xFFFFB6C1, 0xFFB3E5FC};
         int[] setB = {0xFFD1C4E9, 0xFFFFF59D};
 
-        animator1.attach(assignedBtn, setA, setB, radius);
-        animator2.attach(detailsBtn, setA, setB, radius);
-        animator3.attach(completedBtn, setA, setB, radius);
+        animator1.attach(btnAssignedTask, setA, setB, radius);
+        animator2.attach(btnTaskDetails, setA, setB, radius);
+        animator3.attach(btnCompletedTask, setA, setB, radius);
+    }
 
-        assignedBtn.setOnClickListener(this::bounce);
-        detailsBtn.setOnClickListener(this::bounce);
-        completedBtn.setOnClickListener(this::bounce);
+    private void setupMusic() {
+        bgMusic = MediaPlayer.create(this, R.raw.bg_music);
+        if (bgMusic != null) {
+            bgMusic.setLooping(true);
+            bgMusic.setVolume(0.7f, 0.7f);
+        }
+        updateMusicIcon();
+    }
+
+    private void toggleMusic() {
+        musicOn = !musicOn;
+        if (musicOn) {
+            startMusic();
+        } else {
+            pauseMusic();
+        }
+        updateMusicIcon();
     }
 
     private void setupLogo() {
