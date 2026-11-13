@@ -1,4 +1,4 @@
-package com.example.familytasks; // change to your package
+package com.example.tokappq2.; // change to your package
 
 import android.app.TimePickerDialog;
 import android.os.Bundle;
@@ -23,7 +23,7 @@ public class CreateTaskActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_task);
+        setContentView(R.layout.activity_main3);
 
         etTaskName = findViewById(R.id.etTaskName);
         etTaskDetails = findViewById(R.id.etTaskDetails);
