@@ -32,7 +32,7 @@ public class CreateTaskActivity extends AppCompatActivity {
         spChild = findViewById(R.id.spChild);
 
         // Replace with your real children list
-        String[] children = {"Mia", "Leo", "Zoe"};
+        String[] children = {"Carl", "Leo", "Zoe"};
         spChild.setAdapter(new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_dropdown_item, children));
 
